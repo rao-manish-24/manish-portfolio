@@ -24,10 +24,16 @@ module.exports = {
     },
     extend: {
       colors: {
-        primary: "#1c1c22",
+        primary: "rgb(var(--bg-primary) / <alpha-value>)",
+        secondary: "rgb(var(--bg-secondary) / <alpha-value>)",
+        tertiary: "rgb(var(--bg-tertiary) / <alpha-value>)",
+        deep: "rgb(var(--bg-deep) / <alpha-value>)",
+        card: "rgb(var(--bg-card) / <alpha-value>)",
+        foreground: "rgb(var(--foreground) / <alpha-value>)",
+        dark: "#1c1c22",
         accent: {
-          DEFAULT: "#00ff99",
-          hover: "#00e187",
+          DEFAULT: "rgb(var(--accent) / <alpha-value>)",
+          hover: "rgb(var(--accent-hover) / <alpha-value>)",
         },
       },
 
@@ -47,5 +53,8 @@ module.exports = {
       },
     },
   },
-  plugins: [require("tailwindcss-animate")],
+  plugins: [
+    require('@tailwindcss/typography'),
+    require("tailwindcss-animate"),
+  ],
 };

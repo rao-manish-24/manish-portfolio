@@ -11,20 +11,32 @@ const links = [
     path: "/",
   },
   {
-    name: "services",
-    path: "/services",
+    name: "domains",
+    path: "/domains",
   },
   {
     name: "resume",
     path: "/resume",
   },
   {
-    name: "work",
-    path: "/work",
+    name: "projects",
+    path: "/projects",
   },
   {
     name: "contact",
     path: "/contact",
+  },
+  {
+    name: "System Design",
+    path: "/system-design",
+  },
+  {
+    name: "ML",
+    path: "/ml",
+  },
+  {
+    name: "DevOps",
+    path: "/devops",
   },
 ];
 
@@ -40,7 +52,7 @@ const MobileNav = () => {
         <div className="mt-32 mb-40 text-center text-2xl">
           <Link href="/">
             <h1 className="text-4xl font-semibold">
-              Luke<span className="text-accent">.</span>
+              Manish<span className="text-accent">.</span>
             </h1>
           </Link>
         </div>
@@ -51,10 +63,11 @@ const MobileNav = () => {
               <Link
                 href={link.path}
                 key={index}
+                prefetch={true}
                 className={`${
                   link.path === pathname &&
                   "text-accent border-b-2 border-accent"
-                } text-xl capitalize hover:text-accent transition-all`}
+                } text-xl capitalize hover:text-accent transition-all text-foreground`}
               >
                 {link.name}
               </Link>

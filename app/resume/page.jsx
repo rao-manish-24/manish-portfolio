@@ -57,7 +57,7 @@ import {
 // Contact info
 const contact = {
   name: "Manish Rao",
-  phone: "857-396-6163",
+  phone: "512-829-1911",
   email: "manish.r@mycvscout.com",
   linkedin: "linkedin.com/in/raomanish9538",
   github: "github.com/rao-manish-24",

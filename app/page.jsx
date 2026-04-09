@@ -30,7 +30,7 @@ const Home = () => {
                 className="uppercase flex items-center gap-2"
                 asChild
               >
-                <a href={`${process.env.NEXT_PUBLIC_BASE_PATH}/assets/resume/Manish_Rao_Software_Engineer_2.pdf`} download="Manish_Rao_Resume.pdf">
+                <a href={`${process.env.NEXT_PUBLIC_BASE_PATH}/assets/resume/Manish_Rao_SDE_II_Resume.pdf`} download="Manish_Rao_Resume.pdf">
                   <span>Download CV</span>
                   <FiDownload className="text-xl" />
                 </a>

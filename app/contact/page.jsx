@@ -1,10 +1,13 @@
 "use client";
 
+import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 
 import { FaPhoneAlt, FaEnvelope, FaMapMarkerAlt, FaLocationArrow } from "react-icons/fa";
+
+const WEB3FORMS_KEY = "8b6457da-b3fa-40db-9617-be565a561a6f";
 
 const info = [
   {
@@ -33,6 +36,32 @@ const info = [
 import { motion } from "framer-motion";
 
 const Contact = () => {
+  const [status, setStatus] = useState("idle"); // idle | sending | success | error
+
+  async function handleSubmit(e) {
+    e.preventDefault();
+    setStatus("sending");
+
+    const formData = new FormData(e.target);
+    formData.append("access_key", WEB3FORMS_KEY);
+
+    try {
+      const res = await fetch("https://api.web3forms.com/submit", {
+        method: "POST",
+        body: formData,
+      });
+      const data = await res.json();
+      if (data.success) {
+        setStatus("success");
+        e.target.reset();
+      } else {
+        setStatus("error");
+      }
+    } catch {
+      setStatus("error");
+    }
+  }
+
   return (
     <motion.section
       initial={{ opacity: 0 }}
@@ -46,27 +75,35 @@ const Contact = () => {
         <div className="flex flex-col xl:flex-row gap-[30px]">
           {/* form */}
           <div className="xl:w-[54%] order-2 xl:order-none">
-            <form className="flex flex-col gap-6 p-10 bg-tertiary rounded-xl">
+            <form onSubmit={handleSubmit} className="flex flex-col gap-6 p-10 bg-tertiary rounded-xl">
               <h3 className="text-4xl text-accent">Let&apos;s work together</h3>
               <p className="text-foreground/60">
                 I&apos;m always open to discussing new projects, creative ideas or opportunities to be part of your vision.
               </p>
               {/* input */}
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                <Input type="firstname" placeholder="Firstname" />
-                <Input type="lastname" placeholder="Lastname" />
-                <Input type="email" placeholder="Email address" />
-                <Input type="phone" placeholder="Phone number" />
+                <Input name="firstname" type="text" placeholder="Firstname" required />
+                <Input name="lastname" type="text" placeholder="Lastname" required />
+                <Input name="email" type="email" placeholder="Email address" required />
+                <Input name="phone" type="tel" placeholder="Phone number" />
               </div>
               {/* textarea */}
               <Textarea
+                name="message"
                 className="h-[200px]"
                 placeholder="Type your message here."
+                required
               />
               {/* btn */}
-              <Button size="md" className="max-w-40">
-                Send message
+              <Button size="md" className="max-w-40" type="submit" disabled={status === "sending"}>
+                {status === "sending" ? "Sending..." : "Send message"}
               </Button>
+              {status === "success" && (
+                <p className="text-accent text-sm">Message sent successfully! I&apos;ll get back to you soon.</p>
+              )}
+              {status === "error" && (
+                <p className="text-red-500 text-sm">Something went wrong. Please try again.</p>
+              )}
             </form>
           </div>
           {/* info */}

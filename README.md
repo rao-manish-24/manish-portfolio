@@ -1,36 +1,105 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Manish Rao — Senior Software Engineer Portfolio
 
-## Getting Started
+Personal portfolio website showcasing 5+ years of experience building distributed backend systems, financial platforms, and AI/ML integrations across JP Morgan Chase, Accenture, and Tatvasoft.
 
-First, run the development server:
+## Tech Stack
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+| Category | Technologies |
+|----------|-------------|
+| **Framework** | Next.js 14 (Static Export), React 18 |
+| **Styling** | Tailwind CSS, Framer Motion (page transitions, animations) |
+| **UI Components** | Radix UI (Tabs, Dialog, ScrollArea, Tooltip), react-icons |
+| **Font** | JetBrains Mono |
+| **Contact Form** | Web3Forms (email notifications on form submission) |
+| **Analytics** | Google Analytics 4 (visitor tracking, demographics), Microsoft Clarity (session recordings, heatmaps) |
+| **Deployment** | GitHub Pages via GitHub Actions CI/CD |
+
+## Pages
+
+### Home
+Hero section with profile photo, animated SVG ring, download CV button, social links (GitHub, LinkedIn), animated stat counters (5+ years, 16 projects, 50+ technologies, 230+ commits), and embedded graduation video. Hidden easter egg: rapid-tap the profile photo 5 times to reveal an intro video overlay.
+
+### Domains & Expertise
+Six domain cards (Web Development, Machine Learning, AI Engineering, AI Agent Development, DevOps & Cloud, Testing & Reliability) with a comprehensive tech stack section organized into 9 categories with 40+ technology icons with hover effects and color-coded branding.
+
+### Resume
+Tabbed interface with 6 sections:
+- **Overview** — Quick stats, professional summary, recent experience preview, core technologies
+- **Experience** — 3 roles: JP Morgan Chase (Software Engineer, Dallas), Accenture (Software Engineer, India), Tatvasoft (Software Engineer, India)
+- **Education** — MS in Software Engineering Systems (Northeastern University), BE in Computer Science (NMAM Institute of Technology)
+- **Skills** — 7 categories: Languages, Backend & Frameworks, Frontend, Databases & Messaging, Cloud & DevOps, Observability & Testing, AI/ML & Tools
+- **Projects** — 4 featured projects with tech tags and highlights
+- **Achievements** — 17+ certifications from LangChain Academy, DeepLearning.AI, Neo4j, and Accenture ACE Award
+
+### Projects
+16 project cards in a responsive grid with expandable "Key Highlights" sections, tech stack tags, GitHub links, and live demo links. Categories span full-stack, AI/ML, DevOps, computer vision, and data engineering.
+
+### Contact
+Working contact form powered by Web3Forms with loading state, success/error feedback. Displays phone, email, address, and relocation info.
+
+### Interactive Quizzes
+Three quiz pages with scored MCQs and detailed explanations:
+- **ML System Design** — 16 questions (Two-Tower architecture, Feature Store, model distillation, etc.)
+- **DevOps & SRE** — 18 questions (Chaos Monkey, error budgets, SLOs, CI/CD, IaC, etc.)
+- **System Design** — 30 questions (consistent hashing, rate limiting, CAP theorem, event sourcing, etc.)
+
+## Features
+
+- Dark/light theme toggle with animated Star Wars transition (Darkside/Lightside)
+- Responsive design (mobile, tablet, desktop)
+- Page transitions with stair-step animation effect
+- Prefetching for instant page navigation
+- Static export for GitHub Pages compatibility
+- `basePath` configuration for subdirectory deployment
+
+## Project Structure
+
+```
+app/
+  page.jsx              # Home
+  layout.jsx            # Root layout (analytics, theme, fonts)
+  contact/page.jsx      # Contact form
+  domains/page.jsx      # Expertise & tech stack
+  resume/page.jsx       # Resume (tabbed)
+  projects/page.jsx     # Project showcase
+  devops/page.jsx       # DevOps quiz
+  ml/page.jsx           # ML System Design quiz
+  system-design/page.jsx # System Design quiz
+
+components/
+  Header.jsx            # Logo + navigation + theme toggle
+  Nav.jsx / MobileNav.jsx
+  Photo.jsx             # Profile photo with easter egg
+  Stats.jsx             # Animated counters
+  Social.jsx            # Social media links
+  ThemeToggle.jsx       # Dark/light toggle with animation
+  PageTransition.jsx / StairTransition.jsx
+  ui/                   # Shadcn/ui components
+
+public/assets/
+  resume/               # Downloadable resume PDF
+  photo.jpg             # Profile photo
+  work/                 # Project screenshots
+  certificates/         # Award PDFs
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Local Development
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+```bash
+npm install
+npm run dev
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+Open [http://localhost:3000](http://localhost:3000).
 
-## Learn More
+## Build & Deploy
 
-To learn more about Next.js, take a look at the following resources:
+Pushes to `main` auto-deploy to GitHub Pages via `.github/workflows/deploy.yml`.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+To build locally:
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+```bash
+npm run build
+```
 
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+Static output goes to `./out/`.

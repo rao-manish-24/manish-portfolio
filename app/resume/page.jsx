@@ -74,7 +74,7 @@ const education = {
       duration: "Sep 2023 – May 2025",
       location: "Boston, MA",
       courses: ["Data Science", "Algorithms", "Design Patterns", "Cloud Computing", "Gen AI", "Data Engineering with LLM"],
-      logo: "/assets/northeastern-university-logo.jpg"
+      logo: `${process.env.NEXT_PUBLIC_BASE_PATH}/assets/northeastern-university-logo.jpg`
     },
     {
       institution: "NMAM Institute of Technology",

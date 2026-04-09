@@ -30,7 +30,7 @@ const Home = () => {
                 className="uppercase flex items-center gap-2"
                 asChild
               >
-                <a href="/assets/resume/Manish_Rao_Software_Engineer_2.pdf" download="Manish_Rao_Resume.pdf">
+                <a href={`${process.env.NEXT_PUBLIC_BASE_PATH}/assets/resume/Manish_Rao_Software_Engineer_2.pdf`} download="Manish_Rao_Resume.pdf">
                   <span>Download CV</span>
                   <FiDownload className="text-xl" />
                 </a>
@@ -55,7 +55,7 @@ const Home = () => {
       <div className="container mx-auto px-4 pt-32 pb-16 mt-20">
         <div className="max-w-[900px] mx-auto">
           <video
-            src="/assets/grad-video.mp4"
+            src={`${process.env.NEXT_PUBLIC_BASE_PATH}/assets/grad-video.mp4`}
             controls
             className="w-full rounded-2xl shadow-lg"
           />

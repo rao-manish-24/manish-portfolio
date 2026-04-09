@@ -90,7 +90,7 @@ const ThemeToggle = () => {
             >
               {/* eslint-disable-next-line @next/next/no-img-element */}
               <img
-                src={transitionTheme === "dark" ? "/assets/darkside.webp" : "/assets/lightside.webp"}
+                src={transitionTheme === "dark" ? `${process.env.NEXT_PUBLIC_BASE_PATH}/assets/darkside.webp` : `${process.env.NEXT_PUBLIC_BASE_PATH}/assets/lightside.webp`}
                 alt={transitionTheme === "dark" ? "Dark Side" : "Light Side"}
                 className="w-[720px] h-[720px] xl:w-[900px] xl:h-[900px] object-contain rounded-2xl"
               />

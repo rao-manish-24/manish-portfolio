@@ -359,7 +359,7 @@ const Domains = () => {
             >
               <div className="rounded-2xl overflow-hidden border border-foreground/10 shadow-lg shadow-accent/5">
                 <Image
-                  src="/assets/hold-manish.jpg"
+                  src={`${process.env.NEXT_PUBLIC_BASE_PATH}/assets/hold-manish.jpg`}
                   width={450}
                   height={640}
                   alt="Manish Rao"

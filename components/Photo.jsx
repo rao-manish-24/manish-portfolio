@@ -52,7 +52,7 @@ const Photo = () => {
             className="w-[300px] h-[300px] xl:w-[500px] xl:h-[500px] relative z-10 rounded-full overflow-hidden cursor-pointer"
           >
             <Image
-              src="/assets/photo.jpg"
+              src={`${process.env.NEXT_PUBLIC_BASE_PATH}/assets/photo.jpg`}
               priority
               quality={100}
               fill
@@ -120,7 +120,7 @@ const Photo = () => {
               onClick={(e) => e.stopPropagation()}
             >
               <video
-                src="/assets/intro-video.mp4"
+                src={`${process.env.NEXT_PUBLIC_BASE_PATH}/assets/intro-video.mp4`}
                 controls
                 autoPlay
                 className="w-full h-full object-cover"

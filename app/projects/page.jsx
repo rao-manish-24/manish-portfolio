@@ -436,7 +436,7 @@ const Projects = () => {
         {/* ── image below projects ── */}
         <div className="mt-16 flex justify-center">
           <Image
-            src="/assets/good-code.webp"
+            src={`${process.env.NEXT_PUBLIC_BASE_PATH}/assets/good-code.webp`}
             alt="Good code"
             width={800}
             height={400}
